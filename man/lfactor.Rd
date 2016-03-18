@@ -31,7 +31,7 @@ the levels when cast as numeric.
 An lfactor is, essentialy, a factor that remembers the levels as well as the labels argument.
 Note that all of the arguments are passed to \code{\link[base]{factor}}. Because lfactor imposes
 some additional constraints on the types of levels and labels and stores additional information,
-an lfactor both uses more memory than and is, in some ways, more limited than a factor.
+an lfactor both uses more memory than a factor and is, in some ways, more limited than a factor.
 }
 \examples{
 require(lfactors)
