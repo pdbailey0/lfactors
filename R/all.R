@@ -3,7 +3,7 @@
 #' @import utils
 
 setOldClass("lfactor")
-setGeneric("match")
-setGeneric("%in%")
-setGeneric("as.factor")
+#setGeneric("match")
+#setGeneric("%in%")
+#setGeneric("as.factor")
 
