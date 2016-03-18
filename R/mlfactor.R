@@ -3,7 +3,7 @@
 #' @param table same as \code{\link[base]{match}}
 #' @param nomatch same as \code{\link[base]{match}}
 #' @param incomparables same as \code{\link[base]{match}}
-#' @details Allows match to work when the `x' or `table' arguments in a call to match are lfactors. Note that this is not used by \%in\% for lfactors.
+#' @details Allows match to work when the `x' or `table' arguments in a call to match are lfactors.
 #' @seealso \code{\link[base]{match}}
 #' @export
 mlfactor <- function(x, table, nomatch=NA_integer_, incomparables=NULL) {
@@ -23,6 +23,7 @@ mlfactor <- function(x, table, nomatch=NA_integer_, incomparables=NULL) {
   mm
 }
 
+methods::setGeneric("match")
 setMethod("match", signature(x="lfactor"), mlfactor)
 setMethod("match", signature(table="lfactor"), mlfactor)
 setMethod("match", signature(x="lfactor", table="lfactor"), mlfactor) # prevents warning

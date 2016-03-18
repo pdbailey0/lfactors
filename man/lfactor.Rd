@@ -34,6 +34,7 @@ some additional constraints on the types of levels and labels and stores additio
 an lfactor both uses more memory than and is, in some ways, more limited than a factor.
 }
 \examples{
+require(lfactors)
 # make an example lfactor object
 mon <- lfactor(1:12,
                levels=1:12,
@@ -64,8 +65,6 @@ all.equal(mon \%in\% c(2, 3), mon \%in\% c("Feb", "Mar"))
 all.equal(c(-4, 14,3,10) \%in\% mon, c("not a month", "Third December","Mar","Oct") \%in\% mon)
 # and when both left and right are lfactors
 all.equal(mon \%in\% mon, rep(TRUE,12))
-
-
 }
 \seealso{
 \code{\link[base]{factor}}

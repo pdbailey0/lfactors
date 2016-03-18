@@ -6,3 +6,5 @@ as.factor.lfactor <- function(x) {
   x
 }
 
+methods::setGeneric("as.factor")
+methods::setMethod("as.factor", methods::signature(x="lfactor"), as.factor.lfactor)

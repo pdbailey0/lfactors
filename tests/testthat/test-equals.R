@@ -1,3 +1,6 @@
+require(testthat)
+require(lfactors)
+
 mon <- lfactor(1:12,
                levels=1:12,
                labels=c("Jan", "Feb", "Mar", "Apr", "May","Jun",
@@ -19,7 +22,6 @@ test_that("not equal", {
 
 context("in")
 test_that("in", {
-  #skip_on_cran()
   expect_equal(mon %in% c(2, 3), mon %in% c("Feb", "Mar"))	
   expect_equal(c(-4, 14,3,10) %in% mon, c("not a month", "Third December","Mar","Oct") %in% mon)
 })
@@ -91,7 +93,7 @@ test_that("get num", {
                  labels=letters[4:12])
   expect_equal(as.numeric(let), 4:12)  
   expect_equal(as.double(let), 4:12)  
-  expect_equal(as.integer(let), 4:12)
+  expect_equal(as.integer(let), 1:9)
 })
 
 context("subset drop argument")

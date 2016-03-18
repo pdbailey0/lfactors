@@ -1,38 +1,18 @@
+#' Numeric Vectors from lfactors
 #' @method as.numeric lfactor
+#' @description
+#' Returns numeric representation of an lfactor equal to the \code{levels} argument for each value. This is
+#' different from the behavior of factor which would ignore the values of \code{level}.
+#' 
+#' @param x same as \code{\link[base]{as.numeric}}
+#' @details
+#' This method does not return floating point (numeric) results that are otherwise equal to the results from \code{\link{as.integer.lfactor}}.
+#' Instead it returns the value of the level that was input when the lfactor was created.
+#'
+#' @seealso \code{\link[base]{as.numeric}}, \code{\link{as.integer.lfactor}}
+#' @example man/examples/as.num.R
 #' @export
 as.numeric.lfactor <- function(x, ...) {
   as.numeric(as.character(switchllevels(x)))
 }
-
-#' @method as.integer lfactor
-#' @export
-as.integer.lfactor <- function(x, ...) {
-  getCaller <- function() {
-    sn <- sys.nframe()
-    sc <- sys.calls()
-    sc <- if(sn > 3) {
-      sc <- deparse(sc[[sn-3]])
-    } else {
-      sc <- "interactive()"
-    }
-    sc <- strsplit(sc, "(", fixed=TRUE)[[1]][1]
-    sc
-  }
-  caller <- getCaller()
-  if(caller %in% c("fac2sparse")) {
-    # deals with assumption in this function that all factors return like this
-    return(as.integer(as.factor.lfactor(x)))
-  }
-  as.integer(as.character(switchllevels(x)))
-}
-
-#' @method as.double lfactor
-#' @export
-as.double.lfactor <- function(x, ...) {
-  as.double(as.character(switchllevels(x)))
-}
-
-#setMethod("as.numeric", signature(x="lfactor"), as.numeric.lfactor)
-#setMethod("as.integer", signature(x="lfactor"), as.numeric.lfactor)
-#setMethod("as.double", signature(x="lfactor"), as.numeric.lfactor)
 

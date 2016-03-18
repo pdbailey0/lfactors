@@ -19,7 +19,7 @@ mlfactor(x, table, nomatch = NA_integer_, incomparables = NULL)
 \code{\link[base]{match}} function for lfactors
 }
 \details{
-Allows match to work when the `x' or `table' arguments in a call to match are lfactors. Note that this is not used by \%in\% for lfactors.
+Allows match to work when the `x' or `table' arguments in a call to match are lfactors.
 }
 \seealso{
 \code{\link[base]{match}}
