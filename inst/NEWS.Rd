@@ -1,9 +1,16 @@
 \name{NEWS}
 \title{NEWS for lfactors}
 
+\section{Changes in version 0.9.1}{
+  \itemize{
+    \item Now passes tests in interactive R as well as when run from within devtools::test
+    \item as.integer and as.numeric now return potentially different values for all functions (not just when called in sparse.model.matrix). Essentially, the results of as.integer always start with 1 and go up by one while the results of as.numeric are the values that were used when creating the lfactor.
+  }
+}
+
 \section{Changes in version 0.8.0}{
   \itemize{
-    \item fix bug in sparse.model.matrix. the basic issue is that, unlike model.matrix, sparse.model.matrix assumes that the result of as.integer() for a factor is ordered and starts at 1. This is worked around by sensing the function that calls as.integer and returning what sparse.model.matrix expects if the caller is fac2sparse, the specific function that makes this assumption
+    \item Fix bug in sparse.model.matrix. the basic issue is that, unlike model.matrix, sparse.model.matrix assumes that the result of as.integer() for a factor is ordered and starts at 1. This is worked around by sensing the function that calls as.integer and returning what sparse.model.matrix expects if the caller is fac2sparse, the specific function that makes this assumption
     \item add test for sparse.model.matrix that runs when the Matrix package is in the stack at the time of testing
     \item a function as.factor.lfactor is added but it only works when explicitly called
   }
