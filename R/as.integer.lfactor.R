@@ -5,6 +5,7 @@
 #' when the lfactor was created and instead returns an integer representation starting with 1.
 #' 
 #' @param x same as \code{\link[base]{as.integer}}
+#' @param \dots not used
 #' @details
 #' This method does not return integer results that are otherwise equal to the results from as.numeric
 #' for compatability with \code{\link[Matrix]{sparse.model.matrix}}.

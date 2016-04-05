@@ -5,6 +5,7 @@
 #' different from the behavior of factor which would ignore the values of \code{level}.
 #' 
 #' @param x same as \code{\link[base]{as.numeric}}
+#' @param \dots not used
 #' @details
 #' This method does not return floating point (numeric) results that are otherwise equal to the results from \code{\link{as.integer.lfactor}}.
 #' Instead it returns the value of the level that was input when the lfactor was created.

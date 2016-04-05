@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{same as \code{\link[base]{as.integer}}}
+
+\item{\dots}{not used}
 }
 \description{
 Returns integer representation of an lfactor that ignores the values used in the \code{levels} argument

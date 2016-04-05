@@ -1,6 +1,6 @@
 Package: lfactors
 Version: 0.9.1
-Date: 2016-03-18
+Date: 2016-04-05
 Title: Factors with Levels
 Authors@R: c(person("Paul", "Bailey", role=c("aut", "cre"), email="pbailey@air.org"))
 Author: Paul Bailey [aut, cre]

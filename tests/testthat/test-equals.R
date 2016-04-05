@@ -93,6 +93,7 @@ test_that("get num", {
                  labels=letters[4:12])
   expect_equal(as.numeric(let), 4:12)  
   expect_equal(as.double(let), 4:12)  
+  skip_on_cran()
   expect_equal(as.integer(let), 1:9)
 })
 

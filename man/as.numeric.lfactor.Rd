@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{same as \code{\link[base]{as.numeric}}}
+
+\item{\dots}{not used}
 }
 \description{
 Returns numeric representation of an lfactor equal to the \code{levels} argument for each value. This is
