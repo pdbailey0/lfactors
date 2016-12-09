@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{NEWS for lfactors}
 
+\section{Changes in version 1.0.0}{
+  \itemize{
+    \item Now allows data input to the lfactor command to be taken from labels and levels.
+  }
+}
+
 \section{Changes in version 0.9.2}{
   \itemize{
     \item Now passes tests in interactive R as well as when run from within devtools::test
