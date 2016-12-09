@@ -2,22 +2,32 @@
 #'
 #' @description \code{lfactor} creates a factor that can be compared to its levels or labels.
 #'
-#' @param x a vector of data, in numeric format.
-#' @param levels a vector of levels in x. Unlike factor, these must be numeric. 
+#' @param x a numeric or character vector of data. levels of x can be taken
+#'          either from levels or labels.
+#' @param levels a numeric vector of levels in x. Note that, unlike
+#'               \code{factor}, these must be numeric. 
 #' @param labels a vector of labels for the levels. This vector must be either
-#'               characters that cannot be cast as numeric or characters that are
-#'               equal to the level when cast as numeric.
+#'               characters that cannot be cast as numeric or characters that
+#'               are equal to the level, of the same index,
+#'               when cast as numeric.
 #' @param \dots arguments passed to \code{\link[base]{factor}}.
 #'
 #' @details 
-#' An lfactor can be compared to the levels or the labels (see the `Examples'). Because of that,
-#' the levels must be numeric and the labels must be either not castable as numeric or equal to
-#' the levels when cast as numeric.
+#' An lfactor can be compared to the levels or the labels
+#' (see the `Examples'). Because of that,
+#' the levels must be numeric and the labels must be either not castable
+#' as numeric or equal to
+#' the levels of the same index when cast as numeric.
 #' 
-#' An lfactor is, essentialy, a factor that remembers the levels as well as the labels argument.
-#' Note that all of the arguments are passed to \code{\link[base]{factor}}. Because lfactor imposes
-#' some additional constraints on the types of levels and labels and stores additional information,
-#' an lfactor both uses more memory than a factor and is, in some ways, more limited than a factor.
+#' An lfactor is, essentialy, a factor that remembers the levels
+#' as well as the labels argument.
+#' Note that all of the arguments are passed to
+#' \code{\link[base]{factor}}. Because lfactor imposes
+#' some additional constraints on the types of levels and labels
+#' and stores additional information,
+#' an lfactor both uses more memory than a factor--because it stores both
+#' labels and levels--and is,
+#' in some ways, more limited than a factor.
 #' 
 #' @return
 #' An object of class lfactor that also implement \code{\link[base]{factor}}
@@ -37,6 +47,11 @@ lfactor <- function(x, levels, labels=levels, ...) {
   goodlabs[!is.na(nlabs) & nlabs == levels] <- TRUE
   if( sum(goodlabs) < length(labels)) {
     stop(paste0("The ",sQuote("levels"), " and ", sQuote("labels"), " arguments must either be identical or the labels must not be numbers."))
+  }
+  if(sum(x %in% labels) > 0) {
+    sapply(labels[labels %in% x], function(lab) {
+      x[x%in%lab] <- labels[labels==lab]
+    })
   }
   res <- factor(x, levels=levels, labels=labels, ...)
   attr(res,"llevels") <- levels

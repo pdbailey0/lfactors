@@ -86,6 +86,15 @@ test_that("set num", {
 
 })
 
+context("create with labels")
+test_that("create with labels", {
+  monb <- lfactor(c(1:5, "Jun", 7:12),
+               levels=1:12,
+               labels=c("Jan", "Feb", "Mar", "Apr", "May","Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
+  all.equal(monb,mon)
+})
+
 context("get num")
 test_that("get num", {
   let <- lfactor(4:12,
