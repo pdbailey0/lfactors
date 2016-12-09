@@ -1,7 +1,7 @@
 \name{NEWS}
 \title{NEWS for lfactors}
 
-\section{Changes in version 0.9.1}{
+\section{Changes in version 0.9.2}{
   \itemize{
     \item Now passes tests in interactive R as well as when run from within devtools::test
     \item as.integer and as.numeric now return potentially different values for all functions (not just when called in sparse.model.matrix). Essentially, the results of as.integer always start with 1 and go up by one while the results of as.numeric are the values that were used when creating the lfactor.
