@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{NEWS for lfactors}
 
+\section{Changes in version 1.0.1}{
+  \itemize{
+    \item Fix creating of an lfactor with labels.
+    \item A test "create with labels" used all.equal instead of expect_equal and so wan't running.
+  }
+}
+
 \section{Changes in version 1.0.0}{
   \itemize{
     \item Now allows data input to the lfactor command to be taken from labels and levels.

@@ -49,9 +49,9 @@ lfactor <- function(x, levels, labels=levels, ...) {
     stop(paste0("The ",sQuote("levels"), " and ", sQuote("labels"), " arguments must either be identical or the labels must not be numbers."))
   }
   if(sum(x %in% labels) > 0) {
-    sapply(labels[labels %in% x], function(lab) {
-      x[x%in%lab] <- labels[labels==lab]
-    })
+    for(lab in labels[labels %in% x]) {
+      x[x%in%lab] <- levels[labels==lab]
+    }
   }
   res <- factor(x, levels=levels, labels=labels, ...)
   attr(res,"llevels") <- levels

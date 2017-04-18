@@ -92,7 +92,7 @@ test_that("create with labels", {
                levels=1:12,
                labels=c("Jan", "Feb", "Mar", "Apr", "May","Jun",
                         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
-  all.equal(monb,mon)
+  expect_equal(monb,mon)
 })
 
 context("get num")
