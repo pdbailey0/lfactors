@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{NEWS for lfactors}
 
+\section{Changes in version 1.0.2}{
+  \itemize{
+    \item Fix bug in %in% when lfactor has an NA value
+    \item Add NA to test cases
+  }
+}
+
 \section{Changes in version 1.0.1}{
   \itemize{
     \item Fix creating of an lfactor with labels.

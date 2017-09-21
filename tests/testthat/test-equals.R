@@ -1,15 +1,21 @@
 require(testthat)
 require(lfactors)
 
-mon <- lfactor(1:12,
+mon <- lfactor(1:13,
+               levels=1:12,
+               labels=c("Jan", "Feb", "Mar", "Apr", "May","Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
+
+monf <- factor(1:13,
                levels=1:12,
                labels=c("Jan", "Feb", "Mar", "Apr", "May","Jun",
                         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
 
 context("equal")
 test_that("equal", {
-  expect_equal(mon == "Feb", c(FALSE,TRUE,rep(FALSE,10)))
+  expect_equal(mon == "Feb", c(FALSE,TRUE,rep(FALSE,10),NA))
   expect_equal(mon == "Feb", mon==2)
+  expect_equal(mon == "Feb", monf=="Feb")
   expect_equal(mon[3] == c("Jan", "Feb", "Mar"), mon[3] == 1:3)
   expect_equal(mon[1:2] == c("Feb", "Tuesday"), mon[1:2] == c(2,-4) )
 })
@@ -17,25 +23,27 @@ test_that("equal", {
 context("not equal")
 test_that("not equal", {
   expect_equal(mon != "Feb", mon != 2)						
+  expect_equal(mon != "Feb", monf != "Feb")            
   expect_equal(mon[3] == c("Jan", "Feb", "Mar"), mon[3] == 1:3)
 })
 
 context("in")
 test_that("in", {
+  expect_equal(mon %in% c(2, 3), mon %in% c("Feb", "Mar"))  
   expect_equal(mon %in% c(2, 3), mon %in% c("Feb", "Mar"))	
   expect_equal(c(-4, 14,3,10) %in% mon, c("not a month", "Third December","Mar","Oct") %in% mon)
 })
 
 context("GT and GTE")
 test_that("GT and GTE", {
-  expect_equal(mon >  3, c(rep(FALSE,3), rep(TRUE,9)))
-  expect_equal(mon >= 3, c(rep(FALSE,2), rep(TRUE,10)))
-  expect_equal(3 < mon, c(rep(FALSE,3), rep(TRUE,9)))
-  expect_equal(3 <= mon, c(rep(FALSE,2), rep(TRUE,10)))
-  expect_equal(mon >  "Mar", c(rep(FALSE,3), rep(TRUE,9)))
-  expect_equal(mon >= "Mar", c(rep(FALSE,2), rep(TRUE,10)))
-  expect_equal("Mar" < mon, c(rep(FALSE,3), rep(TRUE,9)))
-  expect_equal("Mar" <= mon, c(rep(FALSE,2), rep(TRUE,10)))
+  expect_equal(mon >  3, c(rep(FALSE,3), rep(TRUE,9),NA))
+  expect_equal(mon >= 3, c(rep(FALSE,2), rep(TRUE,10),NA))
+  expect_equal(3 < mon, c(rep(FALSE,3), rep(TRUE,9),NA))
+  expect_equal(3 <= mon, c(rep(FALSE,2), rep(TRUE,10),NA))
+  expect_equal(mon >  "Mar", c(rep(FALSE,3), rep(TRUE,9),NA))
+  expect_equal(mon >= "Mar", c(rep(FALSE,2), rep(TRUE,10),NA))
+  expect_equal("Mar" < mon, c(rep(FALSE,3), rep(TRUE,9),NA))
+  expect_equal("Mar" <= mon, c(rep(FALSE,2), rep(TRUE,10),NA))
 })
 
 context("droplevels")
@@ -65,7 +73,7 @@ test_that("set text", {
   monp[4] <- "Jun"
   expect_equal(monp=="Jun", monp==6)
   expect_equal(monp=="Jun", c("Jan", "Feb", "Mar", "Jun", "May","Jun",
-                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")=="Jun")
+                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", NA)=="Jun")
 })
 
 context("set num")
@@ -74,21 +82,21 @@ test_that("set num", {
   monp[4] <- 6
   expect_equal(monp=="Jun", monp==6)
   expect_equal(monp=="Jun", c("Jan", "Feb", "Mar", "Jun", "May","Jun",
-                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")=="Jun")
+                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", NA)=="Jun")
   monp <- mon
   monp[4:5] <- c(6,"Feb")
   expect_equal(monp=="Jun", monp==6)
   expect_equal(monp=="Feb", monp==2)
   expect_equal(monp=="Jun", c("Jan", "Feb", "Mar", "Jun", "Feb","Jun",
-                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")=="Jun")
+                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", NA)=="Jun")
   expect_equal(monp=="Feb", c("Jan", "Feb", "Mar", "Jun", "Feb","Jun",
-                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")=="Feb")
+                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", NA)=="Feb")
 
 })
 
 context("create with labels")
 test_that("create with labels", {
-  monb <- lfactor(c(1:5, "Jun", 7:12),
+  monb <- lfactor(c(1:5, "Jun", 7:12,"non-month"),
                levels=1:12,
                labels=c("Jan", "Feb", "Mar", "Apr", "May","Jun",
                         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))

@@ -5,13 +5,11 @@
 #' @export
 inlf <- function(x, table) {
   if(inherits(x, "lfactor")) {
-  	#m1 <- match(x=as.character(x), table=as.character(table), nomatch=0)
-  	#m2 <- match(x=as.character(switchllevels(x)), table=as.character(table), nomatch=0)
-    m1 <- mlfactor(x=as.character(x), table=as.character(table), nomatch=0)
-    m2 <- mlfactor(x=as.character(switchllevels(x)), table=as.character(table), nomatch=0)
+  	m1 <- match(x=as.character(x), table=as.character(table), nomatch=0, incomparables=NULL)
+  	m2 <- match(x=as.character(switchllevels(x)), table=as.character(table), nomatch=0, incomparables=NULL)
   } else {
-  	m1 <- mlfactor(x=as.character(x), table=as.character(table), nomatch=0)
-  	m2 <- mlfactor(x=as.character(x), table=as.character(switchllevels(table)), nomatch=0)
+    m1 <- match(x=as.character(x), table=as.character(table), nomatch=0, incomparables=NULL)
+    m2 <- match(x=as.character(x), table=as.character(switchllevels(table)), nomatch=0, incomparables=NULL)
   }
   ((m1 > 0) | (m2 > 0))
 }
