@@ -6,7 +6,7 @@ droplevels.lfactor <- function(x, ...) {
 	cookie_cutter <- labels %in% x
 	labels <- labels[cookie_cutter]
 	levels <- levels[cookie_cutter]
-	return(lfactor(switchllevels(x), levels=levels, labels=labels))
+	return(lfactor(switchllevels(x), levels=levels, labels=labels, exclude=NULL))
 	#attr(x, "levels") <- labels
 	#attr(x, "llevels") <- levels
 	#return(x)

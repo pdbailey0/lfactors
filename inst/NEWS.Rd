@@ -1,10 +1,12 @@
 \name{NEWS}
 \title{NEWS for lfactors}
 
-\section{Changes in version 1.0.2}{
+\section{Changes in version 1.0.3}{
   \itemize{
+    \item Fix bug in droplevels when an NA is present
+    \item Add NA in droplevels to test cases
     \item Fix bug in %in% when lfactor has an NA value
-    \item Add NA to test cases
+    \item Add NA with %in% to test cases
   }
 }
 

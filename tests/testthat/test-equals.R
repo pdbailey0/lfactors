@@ -54,6 +54,10 @@ test_that("droplevels", {
   expect_equal(attributes(dl)$llevels, c(1,3))
   dlprime <- lfactor(c(1,3),levels=c(1,3), labels=LETTERS[c(1,3)])
   expect_equal(dlprime, dl)
+  # test with NA and exclude=NULL
+  dl3 <- droplevels(x <- lfactor(c(NA,1), levels=c(NA,1,2), labels=LETTERS[1:3], exclude=NULL))
+  l3 <- x <- lfactor(c(NA,1), levels=c(NA,1), labels=LETTERS[1:2], exclude=NULL)
+  expect_equal(dl3, l3)
 })
 
 context("relevel")
