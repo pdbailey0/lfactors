@@ -7,13 +7,14 @@
 \method{as.numeric}{lfactor}(x, ...)
 }
 \arguments{
-\item{x}{same as \code{\link[base]{as.numeric}}}
+\item{x}{same as \ifelse{latex}{\code{as.numeric}}{\code{\link[base:numeric]{as.numeric}}}}
 
 \item{\dots}{not used}
 }
 \description{
-Returns numeric representation of an lfactor equal to the \code{levels} argument for each value. This is
-different from the behavior of factor which would ignore the values of \code{level}.
+Returns numeric representation of an lfactor equal to the \code{levels}
+argument for each value. This is different from the behavior of factor which
+would ignore the values of \code{level}.
 }
 \details{
 This method does not return floating point (numeric) results that are otherwise equal to the results from \code{\link{as.integer.lfactor}}.
@@ -33,6 +34,6 @@ as.integer(let)
 
 }
 \seealso{
-\code{\link[base]{as.numeric}}, \code{\link{as.integer.lfactor}}
+\ifelse{latex}{\code{as.numeric}}{\code{\link[base:numeric]{as.numeric}}},
+         \code{\link{as.integer.lfactor}}
 }
-

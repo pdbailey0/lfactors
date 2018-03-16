@@ -1,5 +1,9 @@
-#' Allow a user to use == and \%in\% on an lfactor for both the label and the level defined when creating the lfactor.
-#' This is especially useful when labels are long and users know the levels well.
+#' Allow a user to use == and \%in\% on an lfactor for both the label and the
+#' level
+#'
+#' Similar to a factor, the user defines levels and labels when 
+#' creating an \code{lfactor}. This is especially useful when
+#' labels are long, and users know the levels well.
 #'
 #' See \code{\link{lfactor}} for examples.
 #'

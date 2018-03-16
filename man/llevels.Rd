@@ -13,9 +13,8 @@ llevels(x)
 A vector of levels
 }
 \description{
-\code{llevels} gives the numeric levels of an lfactor
+\code{llevels} gives the numeric levels of an lfactor.
 }
 \seealso{
-\code{\link[base]{levels}}
+\ifelse{latex}{\code{levels}}{\code{\link[base]{levels}}}
 }
-

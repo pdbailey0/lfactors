@@ -1,16 +1,18 @@
 #' Integer Vectors from lfactors
 #' @method as.integer lfactor
 #' @description
-#' Returns integer representation of an lfactor that ignores the values used in the \code{levels} argument
-#' when the lfactor was created and instead returns an integer representation starting with 1.
+#' Returns integer representation of an lfactor that ignores the values used in
+#' the \code{levels} argument when the lfactor was created and instead returns
+#' an integer representation starting with 1.
 #' 
-#' @param x same as \code{\link[base]{as.integer}}
+#' @param x same as \ifelse{latex}{\code{as.integer}}{\code{\link[base:integer]{as.integer}}}
 #' @param \dots not used
 #' @details
-#' This method does not return integer results that are otherwise equal to the results from as.numeric
-#' for compatability with \code{\link[Matrix]{sparse.model.matrix}}.
+#' This method does not return integer results that are otherwise equal to the
+#' results from as.numeric for compatibility with
+#' \ifelse{latex}{\code{sparse.model.matrix}}{\code{\link[Matrix]{sparse.model.matrix}}}.
 #'
-#' @seealso \code{\link[base]{as.integer}}, \code{\link{as.numeric.lfactor}}
+#' @seealso \ifelse{latex}{\code{as.integer}}{\code{\link[base:integer]{as.integer}}}, \code{\link{as.numeric.lfactor}}
 #' @example man/examples/as.num.R
 #' @export
 as.integer.lfactor <- function(x, ...) {

@@ -8,14 +8,14 @@
 inlf(x, table)
 }
 \arguments{
-\item{x}{same as \code{\link[base]{\%in\%}}}
+\item{x}{same as \ifelse{latex}{\code{\%in\%}}{\code{\link[base:match]{\%in\%}}}}
 
-\item{table}{same as \code{\link[base]{\%in\%}}}
+\item{table}{same as \ifelse{latex}{\code{\%in\%}}{\code{\link[base:match]{\%in\%}}}}
 }
 \description{
-Implements \%in\% for lfactors
+Implements \%in\% for lfactors.
 }
 \seealso{
-\code{\link[base]{\%in\%}}
+\ifelse{latex}{\code{\%in\%}}{\code{\link[base:match]{\%in\%}}}
 }
 

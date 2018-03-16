@@ -7,17 +7,19 @@
 \method{as.integer}{lfactor}(x, ...)
 }
 \arguments{
-\item{x}{same as \code{\link[base]{as.integer}}}
+\item{x}{same as \ifelse{latex}{\code{as.integer}}{\code{\link[base:integer]{as.integer}}}}
 
 \item{\dots}{not used}
 }
 \description{
-Returns integer representation of an lfactor that ignores the values used in the \code{levels} argument
-when the lfactor was created and instead returns an integer representation starting with 1.
+Returns integer representation of an lfactor that ignores the values used in
+the \code{levels} argument when the lfactor was created and instead returns
+an integer representation starting with 1.
 }
 \details{
-This method does not return integer results that are otherwise equal to the results from as.numeric
-for compatability with \code{\link[Matrix]{sparse.model.matrix}}.
+This method does not return integer results that are otherwise equal to the
+results from as.numeric for compatibility with
+\ifelse{latex}{\code{sparse.model.matrix}}{\code{\link[Matrix]{sparse.model.matrix}}}.
 }
 \examples{
 require(lfactors)
@@ -33,6 +35,5 @@ as.integer(let)
 
 }
 \seealso{
-\code{\link[base]{as.integer}}, \code{\link{as.numeric.lfactor}}
+\ifelse{latex}{\code{as.integer}}{\code{\link[base:integer]{as.integer}}}, \code{\link{as.numeric.lfactor}}
 }
-

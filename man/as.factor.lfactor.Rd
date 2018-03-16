@@ -9,12 +9,12 @@
 \item{x}{the lfactor to be coerced to a factor}
 }
 \description{
-Returns an \code{\link[base]{factor}} from an \code{\link{lfactor}}.
+Returns a \ifelse{latex}{\code{factor}}{\link[base]{factor}} from an \code{\link{lfactor}}.
 }
 \details{
-simply drops the numeric levels from the lfactor and returns a normal factor.
+Simply drops the numeric levels from the lfactor and returns a normal factor.
 }
 \seealso{
-\code{\link[base]{as.factor}}
+\ifelse{latex}{\code{as.factor}}{\code{\link[base:factor]{as.factor}}}
 }
 

@@ -1,7 +1,4 @@
-#' Implements \%in\% for lfactors
-#' @param x same as \code{\link[base]{\%in\%}}
-#' @param table same as \code{\link[base]{\%in\%}}
-#' @seealso \code{\link[base]{\%in\%}}
+# Rd in man, not roxygen
 #' @export
 inlf <- function(x, table) {
   if(inherits(x, "lfactor")) {
